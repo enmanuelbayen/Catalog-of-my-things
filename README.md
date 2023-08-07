@@ -1,4 +1,4 @@
-# [XXX]
+# Catalog of my things in Ruby and DB
 
 ....
 
