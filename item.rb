@@ -1,11 +1,18 @@
-class Item
-  attr_reader :title, :published_date, :archived
+require 'securerandom'
 
-  def initialize(title, published_date)
+class Item
+  attr_reader :title, :published_date, :archived, :id
+
+  def initialize(title, published_date, id = SecureRandom.random_number(1000))
+    @id = id
     @title = title
     @published_date = published_date
     @archived = false
     @related_items = []
+  end
+
+  def add_genre(genre)
+    @genre = genre
   end
 
   def add_related_item(item)
