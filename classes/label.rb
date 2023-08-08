@@ -1,13 +1,15 @@
 class Label
-  attr_accessor :name, :items
+  attr_accessor :title
+  attr_reader :id, :items
 
-  def initialize(name)
-    @name = name
+  def initialize(id: SecureRandom.random_number(1..1000), title:)
+    @id = id
+    @title = title
     @items = []
   end
 
   def add_item(item)
-    item.add_label(self)
-    @items << item
+    @items.push(item)
+    item.label = self
   end
 end
