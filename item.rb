@@ -1,34 +1,38 @@
 require 'securerandom'
 
 class Item
-  attr_reader :title, :published_date, :archived, :id
+  attr_reader :genre, :author, :label
+  attr_accessor :publish_date
 
-  def initialize(title, published_date, id = SecureRandom.random_number(1000))
+  def initialize(id: SecureRandom.random_number(1..1000), publish_date:, archived: false)
     @id = id
-    @title = title
-    @published_date = published_date
-    @archived = false
-    @related_items = []
+    @publish_date = publish_date
+    @archived = archived
   end
 
-  def add_genre(genre)
+  def genre=(genre)
     @genre = genre
+    @genre.add_item(self) unless @genre.items.include?(self)
   end
 
-  def add_related_item(item)
-    @related_items << item
+  def author=(author)
+    @author = author
+    @author.add_item(self) unless author.items.include?(self)
   end
 
-  def can_be_archived?
-    (Time.now.year - @published_date.year) > 10
+  def label=(label)
+    @label = label
+    @label.add_item(self) unless label.items.include?(self)
   end
 
   def move_to_archive
-    if can_be_archived?
-      @archived = true
-      puts "#{@title} has been moved to the archive."
-    else
-      puts "#{@title} cannot be archived at this time."
-    end
+    @archived = true if can_be_archived?
+  end
+
+  private
+
+  def can_be_archived?
+    current_year = Time.new.year
+    current_year - @publish_date[:year] > 10
   end
 end
