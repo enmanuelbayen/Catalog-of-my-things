@@ -34,7 +34,8 @@ class Main
     if option.between?(1, 12)
       case option
       when 1
-        # Implement option 1
+        @item.add_related_item
+        # repeat until have all 12 options passed
       when 2
         list_books(@items)
       when 5
