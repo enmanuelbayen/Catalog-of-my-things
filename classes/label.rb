@@ -2,7 +2,7 @@ class Label
   attr_accessor :title
   attr_reader :id, :items
 
-  def initialize(id: SecureRandom.random_number(1..1000), title:)
+  def initialize(title:, id: SecureRandom.random_number(1..1000))
     @id = id
     @title = title
     @items = []
