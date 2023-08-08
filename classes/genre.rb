@@ -14,5 +14,4 @@ class Genre
     @items << item
     item.add_genre(self)
   end
-  
 end
