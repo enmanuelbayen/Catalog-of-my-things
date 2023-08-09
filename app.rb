@@ -4,15 +4,20 @@ require_relative 'classes/label'
 require_relative 'classes/list_books'
 require_relative 'classes/add_book'
 require_relative 'classes/list_labels'
+require_relative 'classes/music'
+require_relative 'classes/genre'
 require_relative 'moduls/data_manager'
 require 'date'
 
 class App
   include DataManager
+  attr_accessor :music_albums, :genre
 
   def initialize
     @items = load_data_from_json('items', Book)
     @labels = load_data_from_json('labels', Label)
+    @music_albums = []
+    @genre = []
   end
 
   def print_options
@@ -36,13 +41,13 @@ class App
     if option.between?(1, 10)
       case option
       when 1
-        # Implement option 1
+        MusicAlbum.list_all_music_albums(music_albums)
       when 2
         list_books(@items)
       when 3
         # Implement option 1
       when 4
-        # Implement option 1
+        Genre.list_all_genres(genre)
       when 5
         list_all_labels(@labels)
       when 6
@@ -50,7 +55,7 @@ class App
       when 7
         add_book
       when 8
-      # Implement option
+        MusicAlbum.add_music_album(music_albums, genre)
       when 9
         # Implement option
       when 10
