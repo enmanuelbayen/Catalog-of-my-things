@@ -5,6 +5,8 @@ def list_all_labels(labels)
     puts 'List of labels:'
     labels.each do |label|
       puts "Title: #{label.title}"
+      puts "Color: #{label.color}"
+      puts '---'
     end
   end
 end
