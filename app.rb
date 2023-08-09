@@ -25,27 +25,35 @@ class App
     puts '4.- List  genres'
     puts '5.- List  labels'
     puts '6.- List  authors'
-    puts '7.- List  sources'
-    puts '8.- Add a book'
-    puts '9.- Add a music album'
-    puts '10.- Add a movie'
-    puts '11.- Add a game'
-    puts '12.- Exit catalog'
+    puts '7.- Add a book'
+    puts '8.- Add a music album'
+    puts '9.- Add a game'
+    puts '10.- Exit catalog'
     puts '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   end
 
   def operator(option)
-    if option.between?(1, 12)
+    if option.between?(1, 10)
       case option
       when 1
         # Implement option 1
       when 2
         list_books(@items)
+      when 3
+        # Implement option 1
+      when 4
+        # Implement option 1
       when 5
         list_all_labels(@labels)
-      when 8
+      when 6
+        # Implement option
+      when 7
         add_book
-      when 12
+      when 8
+      # Implement option
+      when 9
+        # Implement option
+      when 10
         exit_catalog
       end
     else
@@ -59,7 +67,7 @@ class App
       option = gets.chomp.to_i
       operator(option)
       save_data
-      break if option == 12
+      break if option == 10
     end
   end
 

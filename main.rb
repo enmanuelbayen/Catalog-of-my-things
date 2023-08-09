@@ -8,7 +8,7 @@ class Main
   def run
     action = 0
     puts 'Welcome to our application!'
-    while action != 12
+    while action != 10
       display_actions
       action = gets.chomp.to_i
       @app.handle_action(action)
