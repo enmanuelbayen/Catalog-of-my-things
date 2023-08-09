@@ -31,7 +31,7 @@ class App
     puts '10.- Exit catalog'
     puts '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   end
-  
+
   def operator(option)
     if option.between?(1, 10)
       case option
@@ -46,13 +46,13 @@ class App
       when 5
         list_all_labels(@labels)
       when 6
-        # Implement option 
+        # Implement option
       when 7
         add_book
       when 8
-       # Implement option
+      # Implement option
       when 9
-        # Implement option 
+        # Implement option
       when 10
         exit_catalog
       end
