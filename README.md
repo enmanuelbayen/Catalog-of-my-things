@@ -120,6 +120,10 @@ To run tests, run the following command:
 - Twitter: [@EJbayen](https://twitter.com/EJbayen)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/enmanuel-bayen-torres-480906128/)
 
+👤 **Gerson Higgins**
+
+- GitHub: [@gersonhiggins](https://github.com/gersonhiggins)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
