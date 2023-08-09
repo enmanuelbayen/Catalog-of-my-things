@@ -1,4 +1,4 @@
-require_relative '../item'
+require_relative 'item'
 
 class Book < Item
   attr_accessor :id, :publisher, :cover_state, :title
@@ -9,6 +9,16 @@ class Book < Item
     @publisher = publisher
     @cover_state = cover_state
     @title = title
+  end
+
+  def to_h
+    {
+      id: @id,
+      publisher: @publisher,
+      cover_state: @cover_state,
+      title: @title,
+      publish_date: @publish_date.strftime('%Y-%m-%d')
+    }
   end
 
   private
