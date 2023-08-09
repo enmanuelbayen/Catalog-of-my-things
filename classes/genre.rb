@@ -4,7 +4,7 @@ require_relative 'item'
 class Genre
   attr_reader :name
   attr_accessor :id, :items
-  
+
   def initialize(name, id = SecureRandom.random_number(1000))
     @name = name
     @id = id

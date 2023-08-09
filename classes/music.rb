@@ -8,13 +8,13 @@ class MusicAlbum < Item
     super(publish_date: publish_date, id: id)
     @on_spotify = false
   end
-  
+
   def self.list_all_music_albums(music_albums)
     if music_albums.empty?
       puts 'Add a new music album first!'
     else
-        puts 'Full List of Music Albums: '
-        music_albums.each_with_index do |music_album, index|
+      puts 'Full List of Music Albums: '
+      music_albums.each_with_index do |music_album, index|
         puts "#{index}) ID: #{music_album.id}"
         puts "Genre: #{music_album.genre.name}"
         puts "Publish Date: #{music_album.publish_date}"
@@ -23,7 +23,7 @@ class MusicAlbum < Item
       puts
     end
   end
-  
+
   def self.add_music_album(music_albums, genre)
     print 'Genre of the music album: '
     name_genre = gets.chomp.capitalize
