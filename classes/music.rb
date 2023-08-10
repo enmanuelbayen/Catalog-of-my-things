@@ -38,6 +38,7 @@ class MusicAlbum < Item
     end
 
     new_genre.add_item(new_music_album)
+
     music_albums << new_music_album
     puts 'Your music album has been created successfully'
   end

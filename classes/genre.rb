@@ -18,13 +18,13 @@ class Genre
 
   def self.list_all_genres(genres)
     if genres.empty?
-      puts 'List of albums is empty...'
+      puts 'List of genre is empty...'
     else
       filtered_genres = []
       genres.each do |genre|
         filtered_genres << genre unless filtered_genres.any? { |g| g.name == genre.name }
       end
-      puts 'List of all genres: '
+      puts 'List of all added genres: '
       filtered_genres.each_with_index do |genre, index|
         puts "#{index}) (ID: #{genre.id}) Genre: #{genre.name}"
       end

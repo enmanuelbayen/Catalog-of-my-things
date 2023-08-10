@@ -14,10 +14,10 @@ class App
   attr_accessor :music_albums, :genre
 
   def initialize
-    @items = load_data_from_json('items', Book)
+    @genre = load_genres
     @labels = load_data_from_json('labels', Label)
-    @music_albums = []
-    @genre = []
+    @items = load_data_from_json('items', Book)
+    @music_albums = load_music
   end
 
   def print_options
@@ -56,6 +56,8 @@ class App
         add_book
       when 8
         MusicAlbum.add_music_album(music_albums, genre)
+        save_music
+        save_genres
       when 9
         # Implement option
       when 10
@@ -71,7 +73,6 @@ class App
       print_options
       option = gets.chomp.to_i
       operator(option)
-      save_data
       break if option == 10
     end
   end

@@ -25,5 +25,4 @@ def add_book
 
   book_label = Label.new(title: title, color: label_color)
   @labels << book_label
-  save_data
 end
