@@ -1,13 +1,14 @@
 require 'securerandom'
+require_relative 'label'
 
 class Item
-  attr_reader :id, :genre, :author, :label
-  attr_accessor :publish_date
+  attr_reader :genre, :author, :label, :publish_date, :id
+  attr_accessor :archived
 
-  def initialize(publish_date:, id: SecureRandom.random_number(1..1000), archived: false)
-    @id = id
+  def initialize(publish_date, id = SecureRandom.random_number(1..1000))
     @publish_date = publish_date
-    @archived = archived
+    @archived = false
+    @id = id
   end
 
   def add_genre(genre)
@@ -15,12 +16,12 @@ class Item
     @genre.add_item(self) unless @genre.items.include?(self)
   end
 
-  def author=(author)
+  def add_author(author)
     @author = author
     @author.add_item(self) unless author.items.include?(self)
   end
 
-  def label=(label)
+  def add_label(label)
     @label = label
     @label.add_item(self) unless label.items.include?(self)
   end

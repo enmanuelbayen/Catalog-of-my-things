@@ -1,22 +1,25 @@
 require_relative 'classes/item'
 require_relative 'classes/book'
 require_relative 'classes/label'
-require_relative 'classes/list_books'
-require_relative 'classes/add_book'
-require_relative 'classes/list_labels'
 require_relative 'classes/music'
 require_relative 'classes/genre'
-require_relative 'moduls/data_manager'
+require_relative 'classes/game'
+require_relative 'classes/author'
+require_relative 'moduls/load_data_manager'
+require_relative 'moduls/save_data_manager'
 require 'date'
 
 class App
-  include DataManager
-  attr_accessor :music_albums, :genre
+  include LoadData
+  include SaveData
+  attr_accessor :music_albums, :genre, :authors, :games, :labels, :books
 
   def initialize
+    @labels = load_labels
     @genre = load_genres
-    @labels = load_data_from_json('labels', Label)
-    @items = load_data_from_json('items', Book)
+    @authors = load_authors
+    @games = load_games
+    @books = load_books
     @music_albums = load_music
   end
 
@@ -43,23 +46,33 @@ class App
       when 1
         MusicAlbum.list_all_music_albums(music_albums)
       when 2
-        list_books(@items)
+        Book.list_books(books)
       when 3
-        # Implement option 1
+        Game.list_all_games(games)
       when 4
         Genre.list_all_genres(genre)
       when 5
-        list_all_labels(@labels)
+        Label.list_all_labels(labels)
       when 6
-        # Implement option
+        Author.list_all_authors(authors)
       when 7
-        add_book
+        Book.add_books(books, genre, authors, labels)
+        save_books
+        save_genres
+        save_authors
+        save_labels
       when 8
-        MusicAlbum.add_music_album(music_albums, genre)
+        MusicAlbum.add_music_album(music_albums, genre, authors, labels)
         save_music
         save_genres
+        save_authors
+        save_labels
       when 9
-        # Implement option
+        Game.add_games(games, genre, authors, labels)
+        save_games
+        save_genres
+        save_authors
+        save_labels
       when 10
         exit_catalog
       end
@@ -79,16 +92,10 @@ class App
 
   def exit_catalog
     puts 'Exiting catalog. Goodbye!'
-    save_data
     exit
   end
 
   private
-
-  def save_data
-    save_data_to_json('items', @items)
-    save_data_to_json('labels', @labels)
-  end
 
   def get_date_from_user(date_string)
     Date.parse(date_string)
