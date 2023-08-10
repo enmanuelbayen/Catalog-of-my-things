@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class Item
-  attr_reader :genre, :author, :label
+  attr_reader :id, :genre, :author, :label
   attr_accessor :publish_date
 
   def initialize(publish_date:, id: SecureRandom.random_number(1..1000), archived: false)
@@ -10,7 +10,7 @@ class Item
     @archived = archived
   end
 
-  def genre=(genre)
+  def add_genre(genre)
     @genre = genre
     @genre.add_item(self) unless @genre.items.include?(self)
   end
