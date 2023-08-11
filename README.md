@@ -1,6 +1,6 @@
 # Catalog of my things in Ruby and DB
 
-....
+This app is responsible for creating and saving currently 3 things in a custom catalog (music album, games and books) created using Ruby and a UML schema of sql. It was created with a team of 3 people.
 
 <a name="readme-top"></a>
 
@@ -29,9 +29,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [XXX]  <a name="about-project"></a>
+# 📖 Catalog of my things  <a name="about-project"></a>
 
-.....
+Here you have your own application where you can save your hobbies in an organized and dynamic way, a great catalog to show your acquaintances and get to know you better!
+
+Here is a showcase video of the app! --> video
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -52,6 +54,7 @@ The site was built with Ruby
 
 - Module and class for the application 
 - Ruby linters
+- SQL schema
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- LIVE DEMO -->
@@ -78,7 +81,7 @@ Clone this repository to your desired folder:
 ```sh
   cd my-folder
 
-  git clone git@github.com:enmanuelbayen/[XXXXXX]........
+  git clone git@github.com:enmanuelbayen/Catalog-of-my-things.git
 ```
 
 
@@ -87,7 +90,7 @@ Clone this repository to your desired folder:
 Install this project with:
 
 ```sh
-  cd FILE-NAME HERE.....
+  cd Catalog-of-my-things
 
     bundle install
 ```
@@ -124,6 +127,13 @@ To run tests, run the following command:
 
 - GitHub: [@gersonhiggins](https://github.com/gersonhiggins)
 
+👤 **steven wafeek**
+
+- GitHub: [StevenWafeek](https://github.com/StevenWafeek)
+- Twitter: [steven_hakeem](https://twitter.com/steven_hakeem)
+- LinkedIn: [steven wafeek
+  ](https://www.linkedin.com/in/steven-wafeek-b629341b6/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -140,7 +150,7 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome! Will help me a lot to improve my coding skills.
 
-Feel free to check the [issues page](https://github.com/enmanuelbayen/FILE-NAME-HERE/issues)
+Feel free to check the [issues page](https://github.com/enmanuelbayen/Catalog-of-my-things/issues)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
