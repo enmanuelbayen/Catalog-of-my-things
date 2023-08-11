@@ -1,3 +1,9 @@
+CREATE TABLE authors (
+    id INTEGER PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL
+);
+
 CREATE TABLE labels (
     id INTEGER PRIMARY KEY,
     title TEXT NOT NULL,
@@ -46,4 +52,14 @@ CREATE TABLE genres_items_music_albums (
     genre_id INTEGER NOT NULL,
     FOREIGN KEY (music_album_id) REFERENCES music_albums(id),
     FOREIGN KEY (genre_id) REFERENCES genres(id)
+);
+
+CREATE TABLE games (
+    id INTEGER PRIMARY KEY,
+    multiplayer BOOLEAN NOT NULL,
+    last_played_at DATE NOT NULL,
+    item_id INTEGER NOT NULL,
+    author_id INTEGER NOT NULL,
+    FOREIGN KEY (item_id) REFERENCES items(id),
+    FOREIGN KEY (author_id) REFERENCES authors(id)
 );
