@@ -1,13 +1,13 @@
 [
   {
-    "publish_date": "1111-11-11",
-    "id": 76,
-    "title": "Lord of the ring",
-    "label_color": "Blue",
-    "publisher": "Gerson",
-    "cover_state": "New",
-    "first_name": "Gerson",
-    "last_name": "Higgins",
-    "genre": "Fiction"
+    "publish_date": "2018-10-10",
+    "id": 78,
+    "title": "God",
+    "label_color": "Red",
+    "publisher": "Enterprice",
+    "cover_state": "Good one",
+    "first_name": "Steven",
+    "last_name": "Wafeek",
+    "genre": "Fantasy"
   }
 ]

@@ -27,10 +27,20 @@ module LoadData
       music_album_data = File.read('./json_files/music_albums.json')
       if music_album_data != ''
         JSON.parse(music_album_data).map do |music_album|
-          new_music_album = MusicAlbum.new(publish_date: music_album['publish_date'], id: music_album['id'])
+          new_music_album = MusicAlbum.new(music_album['publish_date'], music_album['id'])
           new_music_album.on_spotify = music_album['on_spotify']
-          new_genre = @genre.find { |find_genre| find_genre.name == music_album['genre'] }
+          new_author = authors.find do |find_author|
+            find_author.first_name == music_album['first_name'] && find_author.last_name == music_album['last_name']
+          end
+          new_genre = genre.find { |find_genre| find_genre.name == music_album['genre'] }
+          new_label = labels.find do |find_label|
+            find_label.title == music_album['title'] && find_label.color == music_album['label_color']
+          end
+
           new_genre.add_item(new_music_album)
+          new_author.add_item(new_music_album)
+          new_label.add_item(new_music_album)
+
           music_album_arr << new_music_album
         end
       end
