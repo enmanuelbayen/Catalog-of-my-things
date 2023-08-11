@@ -1,4 +1,4 @@
-require_relative '../classes/label'  # Adjust the path accordingly
+require_relative '../classes/label' # Adjust the path accordingly
 
 RSpec.describe Label do
   let(:dummy_item) { double('item') }

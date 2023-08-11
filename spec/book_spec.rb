@@ -1,4 +1,4 @@
-require_relative '../classes/book'  # Adjust the path accordingly
+require_relative '../classes/book' # Adjust the path accordingly
 
 RSpec.describe Book do
   let(:dummy_label) { double('label', title: 'Sample Title') }
@@ -19,7 +19,8 @@ RSpec.describe Book do
     let(:dummy_genres) { [dummy_genre] }
 
     before do
-      allow_any_instance_of(Object).to receive(:gets).and_return('Sample Title', 'John', 'Doe', 'Publisher', 'Good', 'Fiction', 'Red', '2023-08-11')
+      allow_any_instance_of(Object).to receive(:gets).and_return('Sample Title', 'John', 'Doe', 'Publisher', 'Good',
+                                                                 'Fiction', 'Red', '2023-08-11')
     end
   end
 end
