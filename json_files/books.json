@@ -9,5 +9,16 @@
     "first_name": "Steven",
     "last_name": "Wafeek",
     "genre": "Fantasy"
+  },
+  {
+    "publish_date": "2000-10-10",
+    "id": 413,
+    "title": "Cell",
+    "label_color": "Red",
+    "publisher": "Random",
+    "cover_state": "Good one",
+    "first_name": "Stephen",
+    "last_name": "King",
+    "genre": "Thrilled"
   }
 ]

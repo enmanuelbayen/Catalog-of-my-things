@@ -63,3 +63,14 @@ CREATE TABLE games (
     FOREIGN KEY (item_id) REFERENCES items(id),
     FOREIGN KEY (author_id) REFERENCES authors(id)
 );
+
+-- Adding indexes for foreign keys
+CREATE INDEX idx_books_item_id ON books(item_id);
+CREATE INDEX idx_books_author_id ON books(author_id);
+CREATE INDEX idx_genres_items_books_book_id ON genres_items_books(book_id);
+CREATE INDEX idx_genres_items_books_genre_id ON genres_items_books(genre_id);
+CREATE INDEX idx_music_albums_item_id ON music_albums(item_id);
+CREATE INDEX idx_genres_items_music_albums_music_album_id ON genres_items_music_albums(music_album_id);
+CREATE INDEX idx_genres_items_music_albums_genre_id ON genres_items_music_albums(genre_id);
+CREATE INDEX idx_games_item_id ON games(item_id);
+CREATE INDEX idx_games_author_id ON games(author_id);

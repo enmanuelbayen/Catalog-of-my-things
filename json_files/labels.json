@@ -13,5 +13,10 @@
     "label_title": "Diablo 4",
     "label_color": "Yellow",
     "id": 227
+  },
+  {
+    "label_title": "Cell",
+    "label_color": "Red",
+    "id": 793
   }
 ]
