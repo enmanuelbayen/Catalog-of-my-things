@@ -1,5 +1,4 @@
 require_relative 'item'
-require_relative 'label'
 require_relative 'genre'
 require_relative 'author'
 
@@ -48,6 +47,11 @@ class MusicAlbum < Item
     new_label = labels.find { |find_label| find_label.title == label_title && find_label.color == label_color }
     new_genre = genre.find { |find_genre| find_genre.name == name_genre }
 
+    if new_label.nil?
+      new_label = Label.new(label_title, label_color)
+      labels << new_label
+    end
+    
     if new_genre.nil?
       new_genre = Genre.new(name_genre)
       genre << new_genre
@@ -58,18 +62,11 @@ class MusicAlbum < Item
       authors << new_author
     end
 
-    if new_label.nil?
-      new_label = Label.new(label_title, label_color)
-      labels << new_label
-    end
-
     new_music_album = MusicAlbum.new(publish_date)
 
     new_genre.add_item(new_music_album)
     new_author.add_item(new_music_album)
     new_label.add_item(new_music_album)
-
-    new_genre.add_item(new_music_album)
 
     music_albums << new_music_album
     puts 'Your music album has been added successfully'
