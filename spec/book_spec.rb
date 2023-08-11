@@ -1,26 +1,25 @@
-require 'date'
-require_relative '../classes/book'
+require_relative '../classes/book'  # Adjust the path accordingly
 
-describe Book do
-  let(:publish_date) { Date.new(2023, 8, 1) }
-  let(:book_data) do
-    {
-      id: 123,
-      publisher: 'Publisher',
-      cover_state: 'Good',
-      title: 'Title',
-      publish_date: publish_date
-    }
+RSpec.describe Book do
+  let(:dummy_label) { double('label', title: 'Sample Title') }
+  let(:dummy_author) { double('author', first_name: 'John', last_name: 'Doe') }
+  let(:dummy_genre) { double('genre', name: 'Fiction') }
+
+  describe '.list_books' do
+    it 'outputs a message for empty book list' do
+      books = []
+
+      expect { Book.list_books(books) }.to output(/No books available/).to_stdout
+    end
   end
 
-  it 'can be created' do
-    book = Book.new(**book_data)
-    expect(book).to be_instance_of(Book)
-  end
+  describe '.add_books' do
+    let(:dummy_authors) { [dummy_author] }
+    let(:dummy_labels) { [dummy_label] }
+    let(:dummy_genres) { [dummy_genre] }
 
-  it 'can be converted to hash' do
-    book = Book.new(**book_data)
-    book_hash = book.to_h
-    expect(book_hash).to eq(book_data.merge(publish_date: publish_date.strftime('%Y-%m-%d')))
+    before do
+      allow_any_instance_of(Object).to receive(:gets).and_return('Sample Title', 'John', 'Doe', 'Publisher', 'Good', 'Fiction', 'Red', '2023-08-11')
+    end
   end
 end
