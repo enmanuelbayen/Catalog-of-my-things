@@ -31,7 +31,6 @@ module LoadData
           new_music_album.on_spotify = music_album['on_spotify']
           new_genre = @genre.find { |find_genre| find_genre.name == music_album['genre'] }
           new_genre.add_item(new_music_album)
-
           music_album_arr << new_music_album
         end
       end
@@ -106,11 +105,9 @@ module LoadData
             find_label.title == book['title'] && find_label.color == book['label_color']
           end
           new_genre = genre.find { |find_genre| find_genre.name == book['genre'] }
-
           new_genre.add_item(new_book)
           new_author.add_item(new_book)
           new_label.add_item(new_book)
-
           books_arr << new_book
         end
       end

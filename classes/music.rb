@@ -65,7 +65,6 @@ class MusicAlbum < Item
 
     new_music_album = MusicAlbum.new(publish_date)
 
-
     new_genre.add_item(new_music_album)
     new_author.add_item(new_music_album)
     new_label.add_item(new_music_album)
