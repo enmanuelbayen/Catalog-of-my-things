@@ -20,6 +20,12 @@ Metrics/CyclomaticComplexity:
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 30
+Metrics/PerceivedComplexity:
+  Max: 10
+Metrics/ModuleLength:
+  Max: 110
+Metrics/AbcSize:
+  Max: 60
 
 
 Style/Documentation:

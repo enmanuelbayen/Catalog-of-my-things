@@ -1,25 +1,27 @@
 class Label
-  attr_accessor :title, :color
-  attr_reader :id, :items
+  attr_accessor :id, :title, :color, :items
 
-  def initialize(title:, color:, id: SecureRandom.random_number(1..1000), items: [])
+  def initialize(title, color, id = SecureRandom.random_number(1..1000))
     @id = id
     @title = title
     @color = color
-    @items = items
+    @items = []
+  end
+
+  def self.list_all_labels(labels)
+    if labels.empty?
+      puts 'No labels available.'
+    else
+      puts 'List of all labels: '
+      labels.each_with_index do |label, index|
+        puts "#{index}) (ID: #{label.id}) Label: #{label.title}, Color: #{label.color}"
+      end
+      puts
+    end
   end
 
   def add_item(item)
-    @items.push(item)
-    item.label = self
-  end
-
-  def to_h
-    {
-      id: @id,
-      title: @title,
-      color: @color,
-      items: @items.map(&:to_h)
-    }
+    @items << item
+    item.add_label(self)
   end
 end

@@ -1,11 +1,13 @@
 require_relative 'item'
+require_relative 'label'
 require_relative 'genre'
+require_relative 'author'
 
 class MusicAlbum < Item
   attr_accessor :on_spotify
 
-  def initialize(publish_date:, id: SecureRandom.random_number(1000))
-    super(publish_date: publish_date, id: id)
+  def initialize(publish_date, id = SecureRandom.random_number(1000))
+    super(publish_date, id)
     @on_spotify = false
   end
 
@@ -16,6 +18,8 @@ class MusicAlbum < Item
       puts 'Full List of Music Albums: '
       music_albums.each_with_index do |music_album, index|
         puts "#{index}) ID: #{music_album.id}"
+        puts "Title: #{music_album.label.title}"
+        puts "Author: #{music_album.author.first_name} #{music_album.author.last_name}"
         puts "Genre: #{music_album.genre.name}"
         puts "Publish Date: #{music_album.publish_date}"
         puts '---'
@@ -24,23 +28,51 @@ class MusicAlbum < Item
     end
   end
 
-  def self.add_music_album(music_albums, genre)
-    print 'Genre of the music album: '
+  def self.add_music_album(music_albums, genre, authors, labels)
+    print '-Enter the title of the music album: '
+    label_title = gets.chomp.capitalize
+    print '-First Name of the author: '
+    first_name = gets.chomp.capitalize
+    print '-Last Name of the author: '
+    last_name = gets.chomp.capitalize
+    print '-Genre of the music album: '
     name_genre = gets.chomp.capitalize
-    print 'Publish Date (yyyy-mm-dd): '
+    print '-Enter the music album color: '
+    label_color = gets.chomp
+    print '-Date of publish [Enter date in format (yyyy-mm-dd)]: '
     publish_date = gets.chomp
+
+    new_author = authors.find do |find_author|
+      find_author.first_name == first_name && find_author.last_name == last_name
+    end
+    new_label = labels.find { |find_label| find_label.title == label_title && find_label.color == label_color }
     new_genre = genre.find { |find_genre| find_genre.name == name_genre }
-    new_music_album = MusicAlbum.new(publish_date: publish_date)
 
     if new_genre.nil?
       new_genre = Genre.new(name_genre)
       genre << new_genre
     end
 
+    if new_author.nil?
+      new_author = Author.new(first_name, last_name)
+      authors << new_author
+    end
+
+    if new_label.nil?
+      new_label = Label.new(label_title, label_color)
+      labels << new_label
+    end
+
+    new_music_album = MusicAlbum.new(publish_date)
+
+    new_genre.add_item(new_music_album)
+    new_author.add_item(new_music_album)
+    new_label.add_item(new_music_album)
+
     new_genre.add_item(new_music_album)
 
     music_albums << new_music_album
-    puts 'Your music album has been created successfully'
+    puts 'Your music album has been added successfully'
   end
 
   private
