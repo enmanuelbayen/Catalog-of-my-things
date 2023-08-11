@@ -14,7 +14,9 @@ RSpec.describe Game do
     let(:dummy_labels) { [dummy_label] }
     let(:dummy_genres) { [dummy_genre] }
     before do
-      allow_any_instance_of(Object).to receive(:gets).and_return('Sample Game Title', 'John', 'Doe', 'Adventure', '2023-08-11', 'y', '2021', 'Red')
+      allow_any_instance_of(Object).to receive(:gets).and_return('Sample Game Title',
+                                                                 'John', 'Doe', 'Adventure',
+                                                                 '2023-08-11', 'y', '2021', 'Red')
     end
   end
 end
