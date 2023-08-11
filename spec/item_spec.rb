@@ -1,9 +1,9 @@
 require_relative '../classes/item'
 
 RSpec.describe Item do
-    let(:dummy_genre) { double('genre', items: []) }
-    let(:dummy_author) { double('author', items: []) }
-    let(:dummy_label) { double('label', items: []) }
+  let(:dummy_genre) { double('genre', items: []) }
+  let(:dummy_author) { double('author', items: []) }
+  let(:dummy_label) { double('label', items: []) }
 
   describe '#initialize' do
     it 'initializes an item object with publish_date and optional id' do
