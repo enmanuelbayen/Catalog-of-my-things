@@ -51,7 +51,7 @@ class MusicAlbum < Item
       new_label = Label.new(label_title, label_color)
       labels << new_label
     end
-    
+
     if new_genre.nil?
       new_genre = Genre.new(name_genre)
       genre << new_genre

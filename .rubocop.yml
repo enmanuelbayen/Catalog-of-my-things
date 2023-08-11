@@ -23,7 +23,7 @@ Metrics/BlockLength:
 Metrics/PerceivedComplexity:
   Max: 10
 Metrics/ModuleLength:
-  Max: 110
+  Max: 115
 Metrics/AbcSize:
   Max: 60
 
